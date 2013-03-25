@@ -28,7 +28,7 @@ to install %{name}-devel.
 cp %{SOURCE1001} .
 
 %build
-make prefix=%{_prefix}  %{?_smp_mflags}
+make prefix=%{_prefix}  %{?_smp_mflags} CFLAGS="%{optflags} -fPIC"
 
 %install
 
@@ -36,8 +36,8 @@ mkdir -p %{buildroot}/%{_libdir}
 install -m 755 libiniparser.so.0 %{buildroot}/%{_libdir}
 ln -s libiniparser.so.0 %{buildroot}/%{_libdir}/libiniparser.so
 mkdir -p %{buildroot}/%{_includedir}
-install -m 755 src/*.h %{buildroot}/%{_includedir}
-install -m 755 src/*.h %{buildroot}/%{_includedir}
+install -m 644 src/*.h %{buildroot}/%{_includedir}
+install -m 644 src/*.h %{buildroot}/%{_includedir}
 mkdir -p %{buildroot}/%{_libdir}/pkgconfig
 cat > %{buildroot}/%{_libdir}/pkgconfig/%{name}.pc <<EOF
 prefix = %{_prefix}
@@ -52,7 +52,6 @@ Libs : -L\${libdir} -liniparser
 Cflags : -I\${includedir}
 
 EOF
-
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
@@ -60,7 +59,6 @@ EOF
 %files
 %manifest %{name}.manifest
 %license LICENSE
-%{_datadir}/license/%{name}
 %{_libdir}/*.so.*
 
 %files devel
