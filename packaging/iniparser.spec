@@ -62,6 +62,7 @@ EOF
 %{_libdir}/*.so.*
 
 %files devel
+%manifest %{name}.manifest
 %{_includedir}/*.h
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
