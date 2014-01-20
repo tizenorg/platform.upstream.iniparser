@@ -1,6 +1,6 @@
 Name:           iniparser
-Version:        2.17
-Release:        3
+Version:        3.1
+Release:        0
 License:        MIT
 Summary:        Stand-alone ini file parsing library
 Url:            http://ndevilla.free.fr/iniparser/
@@ -24,7 +24,7 @@ for %{name}. If you like to develop programs using %{name}, you will need
 to install %{name}-devel.
 
 %prep
-%setup -q
+%setup -q -n iniparser
 cp %{SOURCE1001} .
 
 %build
