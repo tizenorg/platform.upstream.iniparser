@@ -4,7 +4,7 @@
 
 # Compiler settings
 CC      = gcc
-CFLAGS  = -O3 -fPIC
+CFLAGS  = -O2 -fPIC -Wall -ansi -pedantic
 
 # Ar settings to build the library
 AR	    = ar
@@ -32,8 +32,7 @@ COMPILE.c=$(CC) $(CFLAGS) -c
 
 
 SRCS = src/iniparser.c \
-	   src/dictionary.c \
-	   src/strlib.c
+	   src/dictionary.c
 
 OBJS = $(SRCS:.c=.o)
 
