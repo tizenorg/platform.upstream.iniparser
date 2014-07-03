@@ -28,7 +28,7 @@ to install %{name}-devel.
 cp %{SOURCE1001} .
 
 %build
-make prefix=%{_prefix}  %{?_smp_mflags} CFLAGS="%{optflags} -fPIC"
+%__make prefix=%{_prefix}  %{?_smp_mflags} CFLAGS="%{optflags} -fPIC"
 
 %install
 
